@@ -82,19 +82,21 @@
 
 \section{Introduction}
 
-Jupyter Lab is an open-source web-based notebook tool that you can use as your development environment.
-A coding notebook enables you to intermix markdown, and code blocks that you can execute in a single document. This is heavily used in the education and research fields because it makes writing reports easy and reproducible. With Jupyter you can create content that has live code, equations, visualizations and explanatory text. 
+Jupyter \index{jupyter} is an open-source web-based notebook tool that you can use as your development environment.
+A coding notebook enables you to intermix markdown, and code blocks that you can execute in a single document. This is heavily used in the education and research fields because it makes writing reports easy and reproducible. With Jupyter you can create content that has live code, equations, visualizations and explanatory text.
+
+Jupyter Lab extends the basic notebook functionality and provides you a full web environment to work in. Using this interface you can open terminals, manage files, and even tile multiple editors.
 
 Applications of Jupyter Jab:
 
 \begin{itemize}
-  \item Quick Experimentation
+  \item Quick experimentation
   \item Telling a story with data
   \item Writing a report
   \item Sharing code snippets for education
 \end{itemize}
 
-In this document we are going to go over the basic installation and usage of Jupyter Lab for personal use developing python\index{python}. In the advanced usage section we go over how to use 
+In this document we are going to go over the basic installation and usage of Jupyter Lab for personal use developing python\index{python}. In the advanced usage section we go over how to use Jupyter on a remote server. This is particularly useful when you want to run algorithms on a remote computer.
 
 \section{Installation}
 
@@ -133,19 +135,28 @@ Notebook Tools (wrench icon): shows various options for the user's current noteb
 
 Open Tabs (a tabbed window icon): lists all currently open tabs in Jupyter Lab.
 
-Additionally, the top toolbar conta
+Additionally, the top toolbar contains the following different drop-down menus: File, Edit, View, Run, Kernel, Tabs, Settings, and Help.
 
 \subsection{Creating a Notebook}
 
 To create a notebook (the working document for both python code and text markdown) from the launcher (\tabfigref{fig:jupyterlablauncher}), click on the Python 3 icon under the orange notebook symbol. Alternatively, if you don't have the launcher open, you can click on File in the toolbar, click New, and finally click Notebook.
 
+This will open an empty, untitled notebook. If you right click on the tab above, or on the name of your notebook in the "Open Tabs" panel on the left, you can rename your notebook.
+
 \subsection{Running a Notebook}
+
+With a notebook open, you can start writing in the editor, the big empty area on the right half of the screen. Just above the editor, you will find the icon to save the open notebook.
+
+There are also a number of icons that directly relate to the "cells" you are writing in. A cell is either python code, markdown, or raw text. You can change what type of text a cell is by clocking on the drop-down menu just above the editor that will say either "Code", "Markdown", or "Raw".
+
+Notebooks work through these cells, in order from top to bottom. The icons above the editor, from left to right, do the following: add a cell after the last current cell, cut the currently selected cells, paste the 
 
 \subsection{Exporting Documents}
 
 \subsection{Customization}
 
 \section{Advanced Usage}
+
 
 \subsection{Multiple Kernels}
 
