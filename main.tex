@@ -63,8 +63,8 @@
 
 
 \begin{center}
-\author{Jeffery B. Russell}
-\author{Dan Moore}
+\author{Jeffery B. Russell},
+\author{Daniel Moore},
 \author{Louden Yandow}
 
 \date{Febuary 20, 2020}
@@ -84,7 +84,7 @@
 \section{Introduction}
 
 Jupyter \index{jupyter} is an open-source web-based notebook tool that you can use as your development environment.
-A coding notebook enables you to intermix markdown, and code blocks that you can execute in a single document. This is heavily used in the education and research fields because it makes writing reports easy and reproducible. With Jupyter you can create content that has live code, equations, visualizations and explanatory text.
+A coding notebook enables you to intermix markdown and code blocks that you can execute in a single document. This is heavily used in the education and research fields because it makes writing reports easy and reproducible. With Jupyter you can create content that has live code, equations, visualizations and explanatory text.
 
 Jupyter Lab extends the basic notebook functionality and provides you a full web environment to work in. Using this interface you can open terminals, manage files, and even tile multiple editors.
 
@@ -101,11 +101,26 @@ In this document we are going to go over the basic installation and usage of Jup
 
 \section{Installation}
 
-\subsection{Dependencies}
+To install, first go to \href{https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html}{Jupyter Install}\footnote{\url{ https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html}} for a detailed guide. This user document assumes that you install Jupyter Lab. \textbf{Do Not Only Install Jupyter Notebook. }
 
-\subsection{Installation on Windows}
+\subsection{Prerequisites}
+In order to install Jupyter, you must have Python installed. Your version of Python \textbf{must be 3.3 or greater}. As part of having Python, you will also have pip. Click \href{https://www.python.org/downloads/}{here}\footnote{\url{ https://www.python.org/downloads/}} for the latest version of Python.
+
+
+However, we highly recommend you take the time now to install \href{https://docs.conda.io/projects/conda/en/latest/user-guide/install/}{Conda}\index{anaconda} now because it'll be helpful later one with some of the more advanced features of Jupyter as well as machine learning focused Python.
+
+
+You should also have either Firefox, Chrome or Safari as these are the only browsers Jupyter\index{jupyter} is currently known to work with.
 
 \subsection{Installation on Linux}
+There a two ways of installing Jupyter on Linux.\\
+\\
+Using pip\index{pip} the command is \textbf{pip install jupyterlab}.\\
+\\
+Using conda the command is \textbf{conda install -c conda-forge jupyterlab}
+
+\subsection{Installation on Windows}
+Installation on Windows is the same as installation on Linux except that you must also add the user-level bin directory if you installed using \textbf{pip install --user}.
 
 \section{Usage}
 
@@ -184,15 +199,51 @@ You can also insert raw text into your document, as shown below. To do this, cha
     \label{fig:rawtextexample}
 \end{figure}
 
-\subsection{Exporting Documents}
+\subsection{Exporting Notebooks}
+In order to export the document, click the \textbf{File} tab, mouse down to \textbf{Export Notebook As...} and then click any of the myriad of formats to export as that format. The most popular export formats are PDF, Markdown \index{markdown}, and HTML. 
 
 \subsection{Customization}
+Customization of Jupyter is in general exceptionally easy.\\
+\\
+In order to change the theme, one simply needs to go to the \textbf{Settings} tab and drop down to JupyterLab Theme. This will allow you to change from light to dark mode as well as the font sizes for the code, content and UI.\\
+\\
+Scrolling down the rest of the Settings you see many other things that can be customized.\\
+\\
+Advanced settings allows you to customize many aspects of Jupyter Lab such as keyboard shortcuts, terminal settings, and a myriad of others. \tabfigref{fig:configuration} shows the configuration menu for Jupyter Lab.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=15cm]{settings.jpg}
+    \caption{Code after being run}
+    \label{fig:configuration}
+\end{figure}
 
 \section{Advanced Usage}
 
-In this section we are going to go over how to use multiple programming languages in Jupyter and how to connect to your Jupyter Lab instance remotely.
+In this section we are going to go over how to use multiple programming languages in Jupyter\index{jupyter} and how to connect to your Jupyter Lab instance remotely.
 
 \subsection{Multiple Kernels}
+
+Adding a Kernel in Jupyter enables you to program with another programming language like R\index{r} or Scala\index{scala}.
+Up to this point we have been working with the python kernel\index{python} which enables you to make python notebooks. The ability to use multiple kernels is useful for education and having cohesion within one IDE\index{IDE}.
+
+You can view a complete list of kernels here:
+
+\href{https://github.com/jupyter/jupyter/wiki/Jupyter-kernels}{https://github.com/jupyter/jupyter/wiki/Jupyter-kernels}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=50mm]{exampleKernels.PNG}
+    \caption{Example of multiple kernels}
+    \label{fig:multKernels}
+\end{figure}
+
+\tabfigref{fig:jupyter_server} shows an example of what your launcher would look like with multiple kernels installed.
+
+The most common way to install a kernel is by using the Anaconda\index{anaconda} prompt, pip\index{pip} support is limited here.
+Once you start adding multiple kernels, it is best if you start running Jupyter Lab through docker\index{docker} because it would make porting it to another computer easier. A popular docker jupyter lab instance with Scala, Python, and R can be found here:
+
+\href{https://hub.docker.com/u/jupyter/}{https://hub.docker.com/u/jupyter/}
 
 \subsection{Remote Connection}
 
@@ -212,7 +263,7 @@ The final step is to connect to the Jupyter Lab instance from your
 remote computer. The easiest way to do this is via a local port
 forward in SSH\index{ssh}. This command essentially forwards all of the traffic on your local machine on a specific port to a remote computer over a ssh connection. The main benefit of doing this is that all the traffic over the connection is encrypted.
 
-\tabfigref{fig:jupyterlablauncher} shows an overview of what the network archetecture looks like. 
+\tabfigref{fig:jupyter_server} shows an overview of what the network architecture looks like.
 
 
 \texttt{ssh -L 6000:localhost:6000 user@remote-host}
@@ -225,25 +276,23 @@ forward in SSH\index{ssh}. This command essentially forwards all of the traffic 
 \end{figure}
 
 After you execute the command above on your remote computer you
-would be able to access your Jupyter Lab instance on your computers "localhost:6000". 
-
+would be able to access your Jupyter Lab instance on your computer's "localhost:6000". 
 
 \newpage
 
 \section{Glossary}
 
 \begin{itemize}[label={}]
+\item {\bf Anaconda}: Anaconda is a package manager for the R and Python languages aimed towards data science" \footnote{\url{ https://www.anaconda.com}}.\index{anaconda}\\
+\item {\bf IDE}: Interactive Development Environment.\index{IDE}\\
 \item {\bf Jupyter}: Nonprofit organization created to "develop open-source software, open-standards, and services for interactive computing across dozens of programming languages" \footnote{\url{ https://jupyter.org/}}.\index{jupyter}\\
-\item {\bf Python}: High-level interpreted, general purpose programming language \footnote{\url{ https://www.python.org/}}.\index{python}\\
 \item {\bf Markdown(MD)}: Lightweight markup-language \footnote{\url{https://en.wikipedia.org/wiki/Markdown}}.\index{markdown}\\
 \item {\bf pip}: Tool for installing and managing python packages \footnote{\url{ https://pypi.org/project/pip/}}.\index{pip}\\
-\item {\bf Scala}: General purpose functional programming language that runs on the JVM \footnote{\url{ https://scala-lang.org/}}.\index{scala}\\
-\item {\bf R}: Programming language for statistical computing and graphics \footnote{\url{ https://www.r-project.org/}}.\index{r}\\
 \item {\bf Pycharm}: A popular versitile python IDE developed by \href{https://www.jetbrains.com/}{Jetbrains}.\index{IDE}\\
-\item {\bf IDE}: Interactive Development Environment.\index{IDE}\\
+\item {\bf Python}: High-level interpreted, general purpose programming language \footnote{\url{ https://www.python.org/}}.\index{python}\\
+\item {\bf R}: Programming language for statistical computing and graphics \footnote{\url{ https://www.r-project.org/}}.\index{r}\\
+\item {\bf Scala}: General purpose functional programming language that runs on the JVM \footnote{\url{ https://scala-lang.org/}}.\index{scala}\\
 \item {\bf ssh}: Secure Socket Shell -- used in connecting to a remote computer over a encrypted channel.\index{ssh}\\
-
-
 
 \end{itemize}
 
