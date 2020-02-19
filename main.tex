@@ -14,6 +14,7 @@
 %% \usepackage{multirow}
 \usepackage{alltt}
 \usepackage{pifont}
+\usepackage{courier}
 \usepackage{fancyvrb}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}   % hide links in hyperref text
@@ -62,9 +63,9 @@
 
 
 \begin{center}
-\author{Jeffer B. Russell}
+\author{Jeffery B. Russell}
 \author{Dan Moore}
-\author{Lauden Y}
+\author{Louden Yandow}
 
 \date{Febuary 20, 2020}
 \end{center}
@@ -124,16 +125,13 @@ To run Jupyter Lab, open your computer's command terminal and enter the followin
 \subsection{Navigation}
 
 Once Jupyter Lab is running, you will see on the left side of the screen a column of icons. Each icon will open a different panel to the right of it when you click it. From top to bottom, these icons have the following functions:
-
-File Browser (folder icon): displays a file browser for the user to open, move, or delete their files.
-
-Running Terminals and Kernels (square stop button inside a circle): shows the user all currently active terminal and kernel sessions.
-
-Commands (palette icon): allows the user to enter various commands into Jupyter Lab.
-
-Notebook Tools (wrench icon): shows various options for the user's current notebook.
-
-Open Tabs (a tabbed window icon): lists all currently open tabs in Jupyter Lab.
+\begin{itemize}
+    \item File Browser (folder icon): displays a file browser for the user to open, move, or delete their files.
+    \item Running Terminals and Kernels (square stop button inside a circle): shows the user all currently active terminal and kernel sessions.
+    \item Commands (palette icon): allows the user to enter various commands into Jupyter Lab.
+    \item Notebook Tools (wrench icon): shows various options for the user's current notebook.
+    \item Open Tabs (a tabbed window icon): lists all currently open tabs in Jupyter Lab.
+\end{itemize}
 
 Additionally, the top toolbar contains the following different drop-down menus: File, Edit, View, Run, Kernel, Tabs, Settings, and Help.
 
@@ -149,7 +147,42 @@ With a notebook open, you can start writing in the editor, the big empty area on
 
 There are also a number of icons that directly relate to the "cells" you are writing in. A cell is either python code, markdown, or raw text. You can change what type of text a cell is by clocking on the drop-down menu just above the editor that will say either "Code", "Markdown", or "Raw".
 
-Notebooks work through these cells, in order from top to bottom. The icons above the editor, from left to right, do the following: add a cell after the last current cell, cut the currently selected cells, paste the 
+Notebooks work through these cells, in order from top to bottom. The icons above the editor, from left to right, do the following: 
+
+\begin{itemize}
+    \item add a cell after the currently selected cell.
+    \item cut the currently selected cells.
+    \item copy the selected cells.
+    \item paste the cells from the clipboard.
+    \item run the selected cells and advance to the next cell.
+    \item interrupt the kernel.
+    \item and restart the kernel.
+\end{itemize}
+
+The following example shows how to write code, run code, and insert raw text into the notebook. First, write some python code and click the "Run selected cells and advance" button (circled in red in the figure below). Our output is shown in the next figure (output is given its own unique cell immediately after the cell that produced it).
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=15cm]{code_before_running.png}
+    \caption{Code before being run}
+    \label{fig:codebeforerunning}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=15cm]{code_after_running.png}
+    \caption{Code after being run}
+    \label{fig:codeafterrunning}
+\end{figure}
+
+You can also insert raw text into your document, as shown below. To do this, change the drop-down menu from Code (or Markdown) to Raw, and type what you want in the cell.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=15cm]{raw_text_example.png}
+    \caption{Example of raw text}
+    \label{fig:rawtextexample}
+\end{figure}
 
 \subsection{Exporting Documents}
 
@@ -157,13 +190,42 @@ Notebooks work through these cells, in order from top to bottom. The icons above
 
 \section{Advanced Usage}
 
+In this section we are going to go over how to use multiple programming languages in Jupyter and how to connect to your Jupyter Lab instance remotely.
 
 \subsection{Multiple Kernels}
 
 \subsection{Remote Connection}
 
+If you have a firewall Jupyter Lab will only be available on your
+local machine at "localhost:8888", however, it is possible to connect to Jupyter Lab from remote computers. 
+This is helpful because you can connect to the same Jupyter instance from multiple computers. This would also save you resources on your local computer so you can program on a lightweight chrome-book that would not be able to run a full IDE\index{IDE} like Pycharm\index{pycharm}.
 
-\subsection{Running a Server}
+The first step to enable remote host would be to set a password that you can connect to the notebook using. You can set a password that you use to log into the website using the following command:
+
+\texttt{jupyter notebook password}
+
+The Second step would be to launch the Jupyter Lab instance in a headless environment -- it never launches a web browser.
+
+\texttt{jupyter lab --no-browser --port=6000}
+
+The final step is to connect to the Jupyter Lab instance from your
+remote computer. The easiest way to do this is via a local port
+forward in SSH\index{ssh}. This command essentially forwards all of the traffic on your local machine on a specific port to a remote computer over a ssh connection. The main benefit of doing this is that all the traffic over the connection is encrypted.
+
+\tabfigref{fig:jupyterlablauncher} shows an overview of what the network archetecture looks like. 
+
+
+\texttt{ssh -L 6000:localhost:6000 user@remote-host}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=15cm]{remoteJupyter.png}
+    \caption{Network Overview}
+    \label{fig:jupyter_server}
+\end{figure}
+
+After you execute the command above on your remote computer you
+would be able to access your Jupyter Lab instance on your computers "localhost:6000". 
 
 
 \newpage
@@ -171,12 +233,17 @@ Notebooks work through these cells, in order from top to bottom. The icons above
 \section{Glossary}
 
 \begin{itemize}[label={}]
-\item {\bf Jupyter}: Nonprofit organization created to "develop open-source software, open-standards, and services for interactive computing across dozens of programming languages". \footnote{{\url https://jupyter.org/}}\index{jupyter}\\
-\item {\bf Python}: High-level interpreted, general purpose programming language \footnote{{\url https://www.python.org/}}.\index{python}\\
-\item {\bf Markdown(MD)}: Lightweight markup-language \footnote{{\url https://en.wikipedia.org/wiki/Markdown}}.\index{markdown}\\
-\item {\bf pip}: Tool for installing and managing python packages \footnote{{\url https://pypi.org/project/pip/}}.\index{pip}\\
-\item {\bf Scala}: General purpose functional programming language that runs on the JVM \footnote{{\url https://scala-lang.org/}}.\index{scala}\\
-\item {\bf R}: Programming language for statistical computing and graphics \footnote{{\url https://www.r-project.org/}}.\index{r}\\
+\item {\bf Jupyter}: Nonprofit organization created to "develop open-source software, open-standards, and services for interactive computing across dozens of programming languages" \footnote{\url{ https://jupyter.org/}}.\index{jupyter}\\
+\item {\bf Python}: High-level interpreted, general purpose programming language \footnote{\url{ https://www.python.org/}}.\index{python}\\
+\item {\bf Markdown(MD)}: Lightweight markup-language \footnote{\url{https://en.wikipedia.org/wiki/Markdown}}.\index{markdown}\\
+\item {\bf pip}: Tool for installing and managing python packages \footnote{\url{ https://pypi.org/project/pip/}}.\index{pip}\\
+\item {\bf Scala}: General purpose functional programming language that runs on the JVM \footnote{\url{ https://scala-lang.org/}}.\index{scala}\\
+\item {\bf R}: Programming language for statistical computing and graphics \footnote{\url{ https://www.r-project.org/}}.\index{r}\\
+\item {\bf Pycharm}: A popular versitile python IDE developed by \href{https://www.jetbrains.com/}{Jetbrains}.\index{IDE}\\
+\item {\bf IDE}: Interactive Development Environment.\index{IDE}\\
+\item {\bf ssh}: Secure Socket Shell -- used in connecting to a remote computer over a encrypted channel.\index{ssh}\\
+
+
 
 \end{itemize}
 
@@ -186,14 +253,24 @@ Notebooks work through these cells, in order from top to bottom. The icons above
 
 \begin{enumerate}
 \item
-{\url https://en.wikipedia.org/wiki/Finite-state\_machine}
+\url{https://jupyter.org/}
 \item
-TODO
+\url{https://www.python.org/}
+\item
+\url{https://en.wikipedia.org/wiki/Markdown}
+\item
+\url{https://pypi.org/project/pip/}
+\item
+\url{https://scala-lang.org/}
+\item
+\url{https://www.r-project.org/}
+\item
+\url{https://www.jetbrains.com/}
 \end{enumerate}
 
 \newpage
 
-\section{Index}
+%\section{Index}
 \printindex
 % outputs its own heading, which does not match the sections
 
