@@ -71,7 +71,7 @@
 \title{
 \begin{center}
 \huge{Jupyter Notebook User Document} \\
-\huge{Progessional Communications}\\
+\huge{Professional Communications}\\
 \newline
 \huge{Team: Dolphins}\\
 \end{center}
@@ -111,8 +111,11 @@
 
 \section{Introduction}
 
+This document goes over the basic installation and usage of Jupyter Lab for personal development. 
+In the advanced usage section we go over how to use Jupyter\index{jupyter} on a remote server. 
+
 Jupyter \index{jupyter} is an open-source web-based notebook tool that you can use as your development environment.
-A coding notebook enables you to intermix markdown and code blocks that you can execute in a single document. This is heavily used in education and research fields because it makes writing reports easy and reproducible. With Jupyter you can create content that has live code, equations, visualizations and explanatory text. Jupyter is a 
+A coding notebook enables you to intermix markdown and code blocks that you can execute in a single document. This is heavily used in education and research fields because it makes writing reports easy and reproducible. With Jupyter you can create content that has live code, equations, visualizations and explanatory text.
 
 Jupyter Lab extends the basic Jypyter notebook functionality and provides you a full web environment to work in. Using this interface you can open terminals, manage files, and even tile multiple editors.
 
@@ -125,20 +128,20 @@ Applications of Jupyter Jab:
   \item Generating graphics
 \end{itemize}
 
-This document goes over the basic installation and usage of Jupyter Lab for personal development. 
-In the advanced usage section we go over how to use Jupyter\index{jupyter} on a remote server. 
-
 \section{Installation}
 
 Full installation instructions can be found on the Jupyter website. \footnote{\url{ https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html}} This user document goes over how to install Jupyter Lab.
 
 \subsection{Prerequisites}
 In order to install Jupyter Lab, you must have Python installed. Your version of Python \textbf{must be 3.3 or greater}. 
-As part of having Python, you will also need to have PIP. Although PIP usually comes with your Python installation, there are some exceptions on Linux where you have to install the two seperately.
+As part of having Python, you will also need to have PIP.
+PIP is a package manager for Python. 
+Although PIP usually comes with your Python installation, there are some exceptions on Linux where you have to install the two separately.
 Go to the Python\index{python} website\footnote{\url{ https://www.python.org/downloads/}} to download the latest version of Python.
 
 
 We highly recommend you take the time to install \href{https://docs.conda.io/projects/conda/en/latest/user-guide/install/}{Conda}\index{anaconda} because it will be helpful later on with some of the more advanced features of Jupyter as well as machine learning in Python.
+Anaconda is a package manager for the R and Python languages aimed towards data science.
 
 
 You should also have either Firefox, Chrome, or Safari because these are the only browsers Jupyter\index{jupyter} is currently known to work well with.
@@ -239,7 +242,6 @@ You can also insert raw text into your document, as shown below.
 To do this, change the drop-down menu from "Code" (or "Markdown") to "Raw", and type what you want in the cell.
 This is demonstrated in figure 4.
 
-
 \begin{figure}[h!]
     \centering
     \includegraphics[width=15cm]{raw_text_example.png}
@@ -247,18 +249,46 @@ This is demonstrated in figure 4.
     \label{fig:rawtextexample}
 \end{figure}
 
+\newpage
+
+Figure 5 demonstrates the true power of Jupyter which is in its ability to produce graphs and other graphics inline.
+This is useful for people doing data visualization or data science.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=15cm]{exGraph.PNG}
+    \caption{Markdown Example}
+    \label{fig:graphingExample}
+\end{figure}
+
+\newpage
+
+Figure 6 demonstrates using the markdown\index{markdown} in Jupyter. 
+Markdown is a Lightweight markup-language -- used to define layout and style for a document.
+This enables you to add links, headers, images, and lists to your document.
+Jupyter's\index{jupyter} markdown also supports embedded Latex\index{latex} math -- used to display complex mathematical equations.
+If you want to learn how to use markdown, Github has excellent tutorials on markdown.\footnote{\url{https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet}}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=15cm]{markdown.png}
+    \caption{Graphing Example}
+    \label{fig:markdownExample}
+\end{figure}
+
+
 \subsection{Exporting Notebooks}
-In order to export the document, click the \textbf{File} tab, mouse down to \textbf{Export Notebook As...} and then click a desired format-- Jupyter supports a lot of format types.
+In order to export the document, click the \textbf{File} tab, mouse down to \textbf{Export Notebook As...} and then click a desired format-- Jupyter\index{jupyter} supports a lot of format types.
 The most popular export formats are PDF, Markdown\index{markdown}, and HTML. 
 
 \subsection{Customization}
-In general, customization of Jupyter easy.\\
+In general, customization of Jupyter is easy.\\
 \\
 To change the Jupyter theme, go to the "Settings" tab and drop down to Jupyter\index{jupyter} Lab Theme. This will allow you to change from light to dark mode as well as the font sizes for the code, content and UI.\\
 \\
 Scrolling down the rest of the settings you see many other things that can be customized.\\
 \\
-Advanced settings allows you to customize many aspects of Jupyter Lab such as keyboard shortcuts, terminal settings, and a myriad of others. Figure 5 shows the configuration menu for Jupyter\index{jupyter} Lab.
+Advanced settings allows you to customize many aspects of Jupyter Lab such as keyboard shortcuts, terminal settings, and a myriad of others. Figure 7 shows the configuration menu for Jupyter\index{jupyter} Lab.
 
 \begin{figure}[h!]
     \centering
@@ -285,29 +315,30 @@ You can view a complete list of kernels can be found on Jupyter's Github wiki.\f
     \label{fig:multKernels}
 \end{figure}
 
-Figure 6 shows an example of what your launcher would look like with multiple kernels installed.
+Figure 8 shows an example of what your launcher would look like with multiple kernels installed.
 
 The most common way to install a kernel is by using the Anaconda\index{anaconda} prompt -- pip\index{pip} support is limited here.
 Once you start adding multiple kernels, it is best if you start running Jupyter Lab through Docker\index{docker} because it would make porting it to another computer easier. A popular Docker Jupyter lab instance with Scala, Python, and R can be found on Jupyter's Docker hub profile\footnote{\url{https://hub.docker.com/u/jupyter/}}.
 
 \subsection{Remote Connection}
 
-If you have a firewall, Jupyter Lab will only be reachable on your
-local machine at "localhost:8888". 
+A prerequisite for this section is having a Linux machine with SSH installed on it. 
+
+If you have a firewall, Jupyter Lab will only be reachable on your local machine at "localhost:8888". 
 However, it is possible to connect to Jupyter Lab from remote computers. 
 Remote access is helpful since it enables multiple people to connect to the same Jupyter instance. This would also save you resources on your local machine so you can program on a lightweight chrome-book that would not be able to run a full IDE\index{IDE} like Pycharm\index{pycharm}.
 
 The first step to enable remote host would be to set a password that you can connect to the notebook using. You can set a password that you use to log into the website by executing the following command in a terminal:
 
 \begin{lstlisting}
-jupyter notebook password
+$jupyter notebook password
 \end{lstlisting}
 
 The second step would be to launch the Jupyter Lab instance in a headless environment -- it never launches a web browser. 
 A headless environments means that you never launch a GUI and it operates solely as a console application. 
 
 \begin{lstlisting}
-jupyter lab --no-browser --port=6000
+$jupyter lab --no-browser --port=6000
 \end{lstlisting}
 
 The final step is to connect to the Jupyter Lab instance from your
@@ -316,12 +347,12 @@ The easiest way to do this is via a local port forward in SSH\index{ssh}.
 The command at listing 1 forwards all of the traffic from your local machine to a specific port on a remote computer over a SSH connection.
 The main benefit of SSH is that all the traffic over the connection is encrypted.
 
-Figure 7 shows an overview of what the network architecture looks like.
+Figure 9 shows an overview of what the network architecture looks like.
 
 \newpage
 
 \begin{lstlisting}[caption=SSH command for local port forwarding]
-ssh -L 6000:localhost:6000 user@remote-host
+$ssh -L 6000:localhost:6000 user@remote-host
 \end{lstlisting}
 
 \begin{figure}[h!]
@@ -343,6 +374,7 @@ will be able to access your Jupyter Lab instance at "localhost:6000" even though
 \item {\bf IDE}: Interactive Development Environment-- some popular IDEs are Pycharm, Netbeans, and Visual Studio.\index{IDE}\\
 \item {\bf Jupyter}: Nonprofit organization created to "develop open-source software, open-standards, and services for interactive computing across dozens of programming languages" \footnote{\url{ https://jupyter.org/}}.\index{jupyter}\\
 \item {\bf JVM}: Java Virtual Machine\index{ssh}\\
+\item {\bf LaTeX}: LaTeX is a document preparation system\index{latex}\\
 \item {\bf Markdown(MD)}: Lightweight markup-language -- used to define layout and style for a document  \footnote{\url{https://en.wikipedia.org/wiki/Markdown}}.\index{markdown}\\
 \item {\bf pip}: Tool for installing and managing python packages \footnote{\url{ https://pypi.org/project/pip/}}.\index{pip}\\
 \item {\bf Pycharm}: A popular versatile Python IDE developed by \href{https://www.jetbrains.com/}{Jetbrains}.\index{IDE}\\
@@ -358,20 +390,32 @@ will be able to access your Jupyter Lab instance at "localhost:6000" even though
 \section{References}
 
 \begin{enumerate}
+
 \item
-\url{https://jupyter.org/}
+Developer Tools for Professionals and Teams. (n.d.). Retrieved March 3, 2020, from \url{https://www.jetbrains.com/}.
+
 \item
-\url{https://www.python.org/}
-\item
+Markdown (2020, March 1). Retrieved March 3, 2020, from 
 \url{https://en.wikipedia.org/wiki/Markdown}
+
+
 \item
-\url{https://pypi.org/project/pip/}
+PIP (n.d.). Retrieved March 3, 2020, from 
+\url{https://pypi.org/project/pip/}.
+
+\item Project Jupyter. (n.d.). Retrieved March 3, 2020 \url{https://jupyter.org/}
+
 \item
-\url{https://scala-lang.org/}
+Python.(n.d.). Retrieved March 3, 2020 from \url{https://www.python.org/}
+
 \item
-\url{https://www.r-project.org/}
+The R Project for Statistical Computing. (n.d.). Retrieved March 3, 2020, from
+\url{https://www.r-project.org/}.
+
 \item
-\url{https://www.jetbrains.com/}
+The Scala Programming Language. (n.d.). Retrieved March 3, 2020, from
+\url{https://scala-lang.org/}.
+
 \end{enumerate}
 
 \newpage
