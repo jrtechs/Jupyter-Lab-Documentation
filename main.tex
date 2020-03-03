@@ -95,7 +95,7 @@
 \author{Daniel Moore},
 \author{Louden Yandow}
 
-\date{March 2, 2020}
+\date{March 3, 2020}
 \end{center}
 
 \newpage
@@ -142,6 +142,7 @@ Go to the Python\index{python} website\footnote{\url{ https://www.python.org/dow
 
 We highly recommend you take the time to install \href{https://docs.conda.io/projects/conda/en/latest/user-guide/install/}{Conda}\index{anaconda} because it will be helpful later on with some of the more advanced features of Jupyter as well as machine learning in Python.
 Anaconda is a package manager for the R and Python languages aimed towards data science.
+Anaconda is often abbreviated as conda. 
 
 
 You should also have either Firefox, Chrome, or Safari because these are the only browsers Jupyter\index{jupyter} is currently known to work well with.
@@ -165,6 +166,13 @@ Installation on Windows is the same as installation on Linux except that you mus
 \begin{lstlisting}
 >pip install jupyterlab --user
 \end{lstlisting}
+
+\\
+Using conda, the command is:
+\begin{lstlisting}
+>conda install -c conda-forge jupyterlab
+\end{lstlisting}
+
 
 \section{Usage}
 
@@ -257,7 +265,7 @@ This is useful for people doing data visualization or data science.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=15cm]{exGraph.PNG}
-    \caption{Markdown Example}
+    \caption{Graphing Example}
     \label{fig:graphingExample}
 \end{figure}
 
@@ -272,7 +280,7 @@ If you want to learn how to use markdown, Github has excellent tutorials on mark
 \begin{figure}[h!]
     \centering
     \includegraphics[width=15cm]{markdown.png}
-    \caption{Graphing Example}
+    \caption{Markdown Example}
     \label{fig:markdownExample}
 \end{figure}
 
@@ -324,7 +332,7 @@ Once you start adding multiple kernels, it is best if you start running Jupyter 
 
 A prerequisite for this section is having a Linux machine with SSH installed on it. 
 
-If you have a firewall, Jupyter Lab will only be reachable on your local machine at "localhost:8888". 
+If you have a firewall, Jupyter Lab will only be reachable on your local machine at \mbox{"localhost:8888"}. 
 However, it is possible to connect to Jupyter Lab from remote computers. 
 Remote access is helpful since it enables multiple people to connect to the same Jupyter instance. This would also save you resources on your local machine so you can program on a lightweight chrome-book that would not be able to run a full IDE\index{IDE} like Pycharm\index{pycharm}.
 
@@ -348,8 +356,6 @@ The command at listing 1 forwards all of the traffic from your local machine to 
 The main benefit of SSH is that all the traffic over the connection is encrypted.
 
 Figure 9 shows an overview of what the network architecture looks like.
-
-\newpage
 
 \begin{lstlisting}[caption=SSH command for local port forwarding]
 $ssh -L 6000:localhost:6000 user@remote-host
