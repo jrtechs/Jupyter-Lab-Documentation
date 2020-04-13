@@ -52,7 +52,7 @@
 \\
 \\
 \author{} % \author{Jeffery B. Russell} \\
-          % \author{Dan Moore}
+          % \author{Daniel Moore}
 \date{}   % \date{Febuary 20, 2020} 
 }
 
@@ -62,8 +62,8 @@
 
 
 \begin{center}
-\author{Jeffer B. Russell}
-\author{Dan Moore}
+\author{Jeffery B. Russell}
+\author{Daniel Moore}
 \author{Lauden Y}
 
 \date{Febuary 20, 2020}
@@ -98,11 +98,24 @@ In this document we are going to go over the basic installation and usage of Jup
 
 \section{Installation}
 
-\subsection{Dependencies}
+To install, first go to \href{https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html}{Jupyter Install} for a detailed guide. This user document assumes that you install Jupyter Lab. \textbf{Do Not Install Jupyter Notebook. }
 
-\subsection{Installation on Windows}
+\subsection{Prerequisites}
+In order to install Jupyter, you must have Python installed. Your version of Python \textbf{must be 3.3 or greater}. As part of having Python, you will also have pip. Click \href{https://www.python.org/downloads/}{here} for the latest version of Python\\
+\\
+However, we highly recommend you take the time now to install \href{https://docs.conda.io/projects/conda/en/latest/user-guide/install/}{Conda} now because it'll be helpful later one with some of the more advanced features of Jupyter as well as machine learning focused Python.\\
+\\
+You should also have either Firefox, Chrome or Safari as these are the only browsers Jupyter is currently known to work with.
 
 \subsection{Installation on Linux}
+There a two ways of installing Jupyter on Linux.\\
+\\
+Using pip the command is \textbf{pip install jupyterlab}.\\
+\\
+Using conda the command is \textbf{conda install -c conda-forge jupyterlab}
+
+\subsection{Installation on Windows}
+Installation on Windows is the same as installation on Linux except that you must also add the user-level bin directory if you installed using \textbf{pip install --user}.
 
 \section{Usage}
 
@@ -141,9 +154,19 @@ To create a notebook (the working document for both python code and text markdow
 
 \subsection{Running a Notebook}
 
-\subsection{Exporting Documents}
+\subsection{Exporting Notebooks}
+In order to export the document, click the \textbf{File} tab, mouse down to \textbf{Export Notebook As...} and then click any of the myriad of formats to export as that format. 
 
 \subsection{Customization}
+Customization of Jupyter is in general exceptionally easy.\\
+\\
+In order to change the theme, one simply needs to go to the \textbf{Settings} tab and drop down to JupyterLab Theme. This will allow you to change from light to dark mode as well as the font sizes for the code, content and UI.\\
+\\
+Scrolling down the rest of the Settings you see many other things that can be customized.\\
+\\
+Advanced settings allows you to customize many aspects of Jupyter Lab such as keyboard shortcuts, terminal settings, and a myriad of others.
+
+\includegraphics[scale=.6]{Jupyter Settings.jpg}
 
 \section{Advanced Usage}
 
